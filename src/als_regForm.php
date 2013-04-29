@@ -1,4 +1,5 @@
 <?php
+//Saves the URL of the location of the form - can be removed if redirection is disabled.
 $pageURL = 'http';
 if ($_SERVER["HTTPS"] == "on") {
     $pageURL .= "s";

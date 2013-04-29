@@ -7,7 +7,7 @@ if (isset($_SESSION['als_regUser'])) {
 	session_start();
 } else {
     if (isset($_SESSION['als_error'])) {
-        $display   = $_SESSION['als_error'];
+        $display   = $_SESSION['als_error']; //Edit these error messages to how you see fit
         switch ($display) {
             case "blank":
                 $display = "A field was left blank";

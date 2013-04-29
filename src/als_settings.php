@@ -1,7 +1,4 @@
 <?php
-
-//Make sure these variables are set before running als_firstTimeSetup.php!
-
 //This is your SQL database name. Must be manually set.
 $als_database = "";
 
@@ -9,27 +6,19 @@ $als_database = "";
 $als_SQLusername = "";
 $als_SQLpassword = "";
 
-
 //Other configuration settings
 $als_noSpecialCharacters = true; //default true, strips non-alphanumeric characters from username registration
 $als_returnToPrevious = true; //default true, automatically returns users after a form is submitted
 $als_returnToPreviousFix = false; //default false, set to true if redirection is broken (can happen with subdomains)
-$als_logoutRedirectURL = "http://google.com"; //The URL users are redirected to after accessing als_logout.php.
+$als_logoutRedirectURL = "http://google.com"; //default Google, the URL users are redirected to after accessing als_logout.php.
 
 //This is your SQL table name. Only change this if you used a table name other than the default.
 $als_table = "als_users";
 
 
-
-
-
-
-
-
-
-
-//Do not modify
-
+//---------------------------------------------
+//Additional Required Functions - Do Not Modify
+//---------------------------------------------
 $con = mysqli_connect("localhost", "$als_SQLusername", "$als_SQLpassword");
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
