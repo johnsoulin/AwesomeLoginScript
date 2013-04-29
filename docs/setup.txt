@@ -1,0 +1,37 @@
+Installation Steps:
+
+1. Create a new SQL database with any name. This database will store all ALS data. 
+Alternatively, you can use an existing database.
+
+2. With the database selected, run the SQL command (this can be done in PHPMyAdmin or from a Linux Terminal window):
+
+CREATE TABLE als_table (id INT UNSIGNED NOT NULL AUTO_INCREMENT, PRIMARY KEY (id), username VARCHAR(26), hash VARCHAR(60), altkey VARCHAR(20), cookie VARCHAR(13), email VARCHAR(50))
+
+If you decide to change the table name, it also must be changed in “als_settings.php”
+
+Recommended optional step: create a new SQL user and give it only permissions to the database in step 1.
+
+3. Open “als_settings.php” and set the following:
+
+$als_database - The full database name in step 1.
+$als_username - The username to an SQL account with permissions to the database.
+$als_password - The password to that account.
+
+Configure other options to how you see fit.
+
+4. Upload all the contents of /src/ to the server.
+
+5. Open als_test.php in your web browser. If you see “Setup complete!”, everything should be working.
+
+
+Included Files:
+
+als_header.php -- displays status messages
+als_loginForm.php -- HTML form for logging in (PHP redirect enabled)
+als_login.php -- code that attempts a login based on posted loginForm information
+als_logout.php -- logs out
+als_nuke.php -- clears entire username table
+als_regForm.php -- HTML form for registering a new user (PHP redirect enabled)
+als_register.php -- code that registers a user based on posted regForm information
+als_viewTable.php -- displays contents of username table
+
