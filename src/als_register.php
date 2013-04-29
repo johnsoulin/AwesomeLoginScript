@@ -18,13 +18,13 @@ if (!empty($_POST["als_regUser"]) && !empty($_POST["als_regPass"]) && !empty($_P
                 $result = "SELECT * FROM $als_table WHERE username='$user' OR email='$email'"; //Search for matching username and/or email address
                 $realResult = mysqli_query($con, $result) or die(mysqli_error($con));
                 if (mysqli_num_rows($realResult) == $zero) {
-                    $hash = $PHPass->HashPassword($pass);
+                    $hash = $PHPass->HashPassword($pass); //Hash the password via PHPass
                     $key  = getToken(20); //Generate an alphanumeric string 20 characters long
                     $sql1 = "INSERT INTO $als_table (username, hash, altkey, email) VALUES ('$user', '$hash', '$key', '$email')";
                     if (!mysqli_query($con, $sql1)) {
                         die('Error: ' . mysqli_error($con));
                     } else {
-                        $_SESSION['als_regUser'] = $user;
+                        $_SESSION['als_regUser'] = $user; //User successfully registered
                     }
                 } else {
                     $_SESSION['als_error'] = "nameExists"; //Row with matching username or email exists
