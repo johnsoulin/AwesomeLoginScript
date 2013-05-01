@@ -5,7 +5,7 @@ Alternatively, you can use an existing database.
 
 2. With the database selected, run the SQL command (this can be done in PHPMyAdmin or from a Linux Terminal window):
 
-CREATE TABLE als_table (id INT UNSIGNED NOT NULL AUTO_INCREMENT, PRIMARY KEY (id), username VARCHAR(26), hash VARCHAR(60), altkey VARCHAR(20), cookie VARCHAR(13), email VARCHAR(50))
+CREATE TABLE als_table (id INT UNSIGNED NOT NULL AUTO_INCREMENT, PRIMARY KEY (id), username VARCHAR(26), hash VARCHAR(60), altkey VARCHAR(20), email VARCHAR(50))
 
 If you decide to change the table name, it also must be changed in “als_settings.php”
 
