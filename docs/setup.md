@@ -2,7 +2,7 @@
 
 1. Select (or create) any mySQL database that will store all ALS data. Run the SQL command (this can be done in PHPMyAdmin or from a Linux Terminal window) on the database:
 
-    CREATE TABLE als\_table (id INT UNSIGNED NOT NULL AUTO_INCREMENT, PRIMARY KEY (id), username VARCHAR(26), hash VARCHAR(60), altkey VARCHAR(20), email VARCHAR(50))
+    CREATE TABLE als\_users (id INT UNSIGNED NOT NULL AUTO_INCREMENT, PRIMARY KEY (id), username VARCHAR(26), hash VARCHAR(60), altkey VARCHAR(20), email VARCHAR(50))
 
     Optional step: create a new mySQL user and give it only permissions to the database in step 1.  
 2. Open “als_settings.php” and set the following:
