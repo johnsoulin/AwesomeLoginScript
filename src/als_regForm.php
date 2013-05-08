@@ -20,6 +20,7 @@ Register an account:
 <input type="text" name="als_regUser" placeholder="Username" />
 <input type="text" name="als_regEmail" placeholder="Email Address" />
 <input type="password" name="als_regPass" placeholder="Password" />
+<input type="password" name="als_confirmPass" placeholder="Confirm Password" />
 <input type="submit" name="als_register" />
 </form>
 </div>

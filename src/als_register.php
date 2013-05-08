@@ -2,18 +2,19 @@
 session_start();
 require "als_settings.php";
 
-if (!empty($_POST["als_regUser"]) && !empty($_POST["als_regPass"]) && !empty($_POST["als_regEmail"])) {
+if (!empty($_POST["als_regUser"]) && !empty($_POST["als_regPass"]) && !empty($_POST["als_confirmPass"]) && !empty($_POST["als_regEmail"])) {
     $user  = trim(mysqli_real_escape_string($con, $_POST["als_regUser"]));
     $pass  = mysqli_real_escape_string($con, $_POST["als_regPass"]);
+	$confirm = mysqli_real_escape_string($con, $_POST["als_confirmPass"]);
     $email = trim(mysqli_real_escape_string($con, $_POST["als_regEmail"]));
     
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) && $pass === $confirm) {
         if (strlen($pass) > 72) {
             die();
             $_SESSION['als_error'] = "length"; //Password too long (PHPass restrictions)
         } else {
             $tempuser = preg_replace('#\W#', '', str_replace(' ', '', $user)); //Strip non-alphanumeric characters
-            if ($als_noSpecialCharacters && ($tempuser == $user)) { //Check username before and after
+            if ($als_noSpecialCharacters && ($tempuser === $user)) { //Check username before and after
                 $user   = $tempuser;
                 $result = "SELECT * FROM $als_table WHERE username='$user' OR email='$email'"; //Search for matching username and/or email address
                 $realResult = mysqli_query($con, $result) or die(mysqli_error($con));
