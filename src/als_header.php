@@ -21,8 +21,8 @@ if (isset($_SESSION['als_regUser'])) {
             case "noSpec":
                 $display = "Only alphanumeric characters permitted in usernames";
                 break;
-            case "email":
-                $display = "Email not valid";
+            case "emailPassWrong":
+                $display = "Email Address Not Valid and/or Passwords Do Not Match";
                 break;
 			case "length":
 				$display = "Username or Password too long";

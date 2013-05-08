@@ -35,7 +35,7 @@ if (!empty($_POST["als_regUser"]) && !empty($_POST["als_regPass"]) && !empty($_P
             }
         }
     } else {
-        $_SESSION['als_error'] = "email"; //Email address not valid
+        $_SESSION['als_error'] = "emailPassWrong"; //Email address not valid AND/OR passwords do not match
     }
     mysqli_close($con);
     
